@@ -57,7 +57,7 @@ function updateBigCup() {
     } else {
         percentage.style.visibility = 'visible'
         percentage.style.height = `${fullCups / totalCups * 330}px`
-        percentage.innerText = `${fullCups / totalCups * 1000}%`
+        percentage.innerText = `${fullCups * 12.5}%`
     }
 
     if (fullCups === totalCups) {
@@ -65,6 +65,6 @@ function updateBigCup() {
         remained.style.height = 0
     } else {
         remained.style.visibility = 'visible'
-        liters.innerText = `${1 - (50 * fullCups / 1000)}L`
+        liters.innerText = `${1 - (0.125 * fullCups)}L`
     }
 }

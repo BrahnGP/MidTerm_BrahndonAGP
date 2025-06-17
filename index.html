@@ -28,6 +28,29 @@
 </head>
 
 <body>
+  <div style="text-align: center; margin: 20px; border: 2px solid #333; padding: 10px;">
+    <p><strong>My EC2 Instance Public IP:</strong></p>
+    <div id="ec2-ip" style="font-size: 18px; color: blue;">Loading...</div>
+    
+    <p style="margin-top: 15px;"><strong>Student:CT1007951</strong> Brahndon Alexis Guajardo Perez</p>
+    <p><strong>Date:</strong> <span id="current-date"></span></p>
+</div>
+
+<script>
+  // Mostrar fecha actual
+  document.getElementById('current-date').textContent = new Date().toLocaleDateString();
+  
+  // Fetch IP pública
+  fetch('https://api.ipify.org?format=json')
+    .then(response => response.json())
+    .then(data => {
+      document.getElementById('ec2-ip').textContent = data.ip;
+    })
+    .catch(error => {
+      document.getElementById('ec2-ip').textContent = 'Unable to load IP.';
+      console.error('Error fetching public IP:', error);
+    });
+</script>
   <h1 id="title">MidTerm Exam - DevOps Infrastructure Level 1</h1>
 
   <div class="container">
